@@ -1,6 +1,4 @@
-[<img src="https://img.shields.io/travis/playframework/play-scala-chatroom-example.svg"/>](https://travis-ci.org/playframework/play-scala-chatroom-example)
-
-# play-scala-chatroom-example
+## scala-chat-server
 
 This is a simple chatroom using Play and Websockets with the Scala API.
 
@@ -65,12 +63,7 @@ sbt run
 
 Go to http://localhost:9000 and open it in two different browsers.  Typing into one browser will cause it to show up in another browser.
 
-## Tributes
+## Links
 
-This project is originally taken from Johan Andrén's [Akka-HTTP version](https://github.com/johanandren/chat-with-akka-http-websockets/tree/akka-2.4.10):
+This project is originally based on [Play Scala Chatroom Example](https://github.com/playframework/play-scala-chatroom-example)
 
-Johan also has a blog post explaining dynamic streams in more detail:
-
-* http://markatta.com/codemonkey/blog/2016/10/02/chat-with-akka-http-websockets/
-
-# scala-chat-server
