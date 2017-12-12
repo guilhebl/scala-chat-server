@@ -1,55 +1,35 @@
-@(url: String)
+@()(implicit r: Request[_])
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">		
 
-        <link rel='stylesheet' href='@routes.Assets.at("lib/bootstrap/css/bootstrap.css")'>
-        <link rel='stylesheet' href='@routes.Assets.at("lib/bootstrap/css/bootstrap-theme.css")'>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <title>Chat Room</title>
+<html>
+<head>
+    <title>Scala Chat Room</title>
+    <link rel='stylesheet' href='@routes.Assets.at("lib/bootstrap/css/bootstrap.min.css")'>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <script type='text/javascript' src='@routes.Assets.at("lib/jquery/jquery.min.js")'></script>
+	<script type='text/javascript' src='@routes.Assets.at("javascripts/modernizr-3.5.0.js")'></script>
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+</head>
+<body data-url="@routes.HomeController.ws.webSocketURL()">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+				<span id="username" class="pull-left span2 formlabel"></span>
 
-    </head>
-
-    <body>
-        <div class="wrap">
-            <div class="container-fluid">
-                <div>
-                    <h1 class="">Chat Room</h1>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul id="messages" class="list-unstyled">
-                        </ul>
-                    </div>
-                </div>
+                <form id="chatform" class="navbar-form pull-right">					
+                    <input id="chattext" type="text" size="50" class="span2">
+                    <button type="submit" class="btn">OK</button>
+					<label for="topicSelect" class="formlabel">select a topic</label>
+					<select id="topicSelect"></select>
+					<label for="addtopictext" class="formlabel">or create a new one</label>
+					<input id="addtopictext" type="text" class="span2" placeholder="New Topic"> 
+                </form>
             </div>
         </div>
+    </div>
 
-        <div class="footer navbar-fixed-bottom">
-            <div class="row">
-                <div class="col-xs-8 col-sm-9">
-                    <input id="message" placeholder="Type Here" type="text"
-                      autofocus
-                      autocomplete="off" spellcheck="false" autocorrect="off"
-                      class="form-control input-lg" />
-                </div>
-
-                <div class="col-xs-4 col-sm-3">
-                    <button id="send" type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
-                </div>
-            </div>
-        </div>
-
-        <script type='text/javascript' src='@routes.Assets.at("lib/jquery/jquery.js")'></script>
-        <script type='text/javascript' src='@routes.Assets.at("lib/flot/jquery.flot.js")'></script>
-		<script type='text/javascript' src='@routes.Assets.at("javascripts/modernizr-3.5.0.js")'></script>
-		<script type='text/javascript' src='@routes.Assets.at("javascripts/app.js")' data-url='@url'></script>
-
-    </body>
-
+    <div id="chatrooms"></div>
+</body>
+        	
 </html>
